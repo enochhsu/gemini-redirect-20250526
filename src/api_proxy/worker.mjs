@@ -344,9 +344,9 @@ const transformRequest = async (req) => ({
 //         "description": "Use Google Search to find up-to-date information." // Optional description         
 // 			}]
 //   };
-
-  return transformed;
-};
+// 
+//   return transformed;
+// };
 
 
 const generateChatcmplId = () => {
