@@ -328,22 +328,22 @@ const transformMessages = async (messages) => {
   return { system_instruction, contents };
 };
 
-// const transformRequest = async (req) => ({
-//   ...await transformMessages(req.messages),
-//   safetySettings,
-//   generationConfig: transformConfig(req),
-// });
+const transformRequest = async (req) => ({
+  ...await transformMessages(req.messages),
+  safetySettings,
+  generationConfig: transformConfig(req),
+});
 
-const transformRequest = async (req) => {
-  const transformed = {
-    ...await transformMessages(req.messages),
-    safetySettings,
-    generationConfig: transformConfig(req),
-    tools: [{  // Hardcoded tools parameter
-      	"name": "google_search",  // Replace with the correct tool name
-        "description": "Use Google Search to find up-to-date information." // Optional description         
-			}]
-  };
+// const transformRequest = async (req) => {
+//   const transformed = {
+//     ...await transformMessages(req.messages),
+//     safetySettings,
+//     generationConfig: transformConfig(req),
+//     tools: [{  // Hardcoded tools parameter
+//       	"name": "google_search",  // Replace with the correct tool name
+//         "description": "Use Google Search to find up-to-date information." // Optional description         
+// 			}]
+//   };
 
   return transformed;
 };
